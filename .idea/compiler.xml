@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="kata3.3.1.4" />
+        <module name="kata3.3.1.3" />
+        <module name="kata3.3.1.1" />
+        <module name="kata3.3.1.4 (crud)" />
+        <module name="kata3.2.4.2(old)" />
+        <module name="kata3.2.3.1" />
+        <module name="kata3.3.1.4 (1)" />
+        <module name="javascript" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring.javascript" target="10" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="javascript" options="-parameters" />
+      <module name="kata3.3.1.1" options="-parameters" />
+      <module name="kata3.3.1.3" options="-parameters" />
+      <module name="kata3.3.1.4" options="-parameters" />
+      <module name="kata3.3.1.4 (1)" options="-parameters" />
+      <module name="kata3.3.1.4 (crud)" options="-parameters" />
+      <module name="spring.javascript" options="-parameters" />
+    </option>
+  </component>
+</project>

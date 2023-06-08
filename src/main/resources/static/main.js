@@ -37,15 +37,16 @@ function getRoles(list) {
     return stringRoles;
 }
 
-function addRoles(role) {
+function addRoles(list) {
     let roles = [];
-    if (role === "ROLE_ADMIN") {
-        roles.push({id: 1, name: "ROLE_ADMIN", role: "ROLE_ADMIN"});
-    } else {
-        roles.push({id: 2, name: "ROLE_USER", role: "ROLE_USER"});
-    }
+        if (list === "ADMIN") {
+            roles.push({id: 1, name: "ROLE_ADMIN", role: "ROLE_ADMIN"});
+        } else {
+            roles.push({id: 2, name: "ROLE_USER", role: "ROLE_USER"});
+        }
     return roles;
 }
+
 
 
 function getUsers() {
@@ -86,8 +87,10 @@ function addUserData() {
     let lastName = document.getElementById('addLastName').value;
     let age = document.getElementById('addAge').value;
     let email = document.getElementById('addEmail').value;
+    console.log(email);
     let password = document.getElementById('addPassword').value;
     let role = document.getElementById('addRoles').value;
+    console.log(role);
     let user = {
         firstName: firstName,
         lastName: lastName,

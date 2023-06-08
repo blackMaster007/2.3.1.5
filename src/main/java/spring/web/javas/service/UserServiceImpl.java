@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import spring.web.javas.model.User;
+import spring.web.javas.repositories.RoleRepository;
 import spring.web.javas.repositories.UserRepository;
 
 import javax.transaction.Transactional;
@@ -15,11 +16,13 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final RoleService roleService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserServiceImpl(UserRepository userRepository, RoleService roleService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
+        this.roleService = roleService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
@@ -30,6 +33,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(User user) {
+        user.getRoles().forEach(role -> role.setId(roleService.findRoleByName(role.getAuthority()).getId()));
         if (user.getPassword() == null) {
             user.setPassword(findUserByEmail(user.getEmail()).getPassword());
         } else {
